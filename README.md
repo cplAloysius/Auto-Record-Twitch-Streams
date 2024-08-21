@@ -9,7 +9,7 @@ If they are, it then uses [Streamlink](https://github.com/streamlink/streamlink)
 
 ## How to install
 
-1. Log in to the [Twitch Developer Console](https://dev.twitch.tv/console) to register a new application and obtain your client ID and client secret.
+1. Log in to the [Twitch Developer Console](https://dev.twitch.tv/console) to register a new application and obtain your client ID and client secret. Instructions [here](https://www.google.com/search?client=safari&rls=en&q=twitch+register+application&ie=UTF-8&oe=UTF-8)
 2. Clone this repository on the desired machine that you will be running the script on, and `cd` into it.
 3. `python setup.py`, which creates a config.json file containing the following information:
     * Your system username
