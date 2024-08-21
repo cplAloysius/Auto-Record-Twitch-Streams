@@ -51,5 +51,6 @@ sudo systemctl start <SERVICE_NAME>
 
 
 Saving the output stream file onto a cloud storage service means not having to `scp` each file from the Rpi to my computer to watch the recording, which could take hours due to the size of the files.
+
 This [Medium article](https://medium.com/@artur.klauser/mounting-google-drive-on-raspberry-pi-dd15193d8138) by [Artur Klauser](https://github.com/ArturKlauser) covers how to mount Google Drive (or most other cloud storage services) onto your Rpi on startup.
 Once this is done, the recorded stream will be saved onto your Google Drive and can be streamed directly from Google Drive, or downloaded for offline viewing.
