@@ -1,6 +1,6 @@
 # Record Twitch Streams
 
-## A Python script to record and save Twitch streams for later viewing.
+## A Python script to record and save Twitch streams for viewing at a later time.
 
 I created this project as I was constantly missing streams from a streamer whenever they went live. Since the streamer did not have Video On Demand (VODs) enabled, I could not watch the stream after it ended. I set up the script to run on startup as a systemd service on a Raspberry Pi 3, and save the output stream to a cloud storage service (Google Drive), mounted on my Rpi with [rclone](https://github.com/rclone/rclone).
 
