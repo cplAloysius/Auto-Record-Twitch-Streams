@@ -31,7 +31,7 @@ while(True):
 	if stream_info["data"]:
 		timestamp = datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
 		output_file = f"stream_{timestamp}.mp4"
-		os.system(f"streamlink --twitch-disable-ads twitch.tv/{streamer_username} best -o '{save_path}{output_file}'")
+		os.system(f"sudo -u aloysiusloh streamlink --twitch-disable-ads twitch.tv/{streamer_username} best -o '{save_path}{output_file}'")
 		continue
 	
 	time.sleep(60)
