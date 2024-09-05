@@ -4,6 +4,7 @@ import json
 username = input("Enter your system username: ")
 streamer_username = input("Enter the Twitch streamer's username: ")
 save_path = input("Enter the desired save path of the output streams (eg. /home/<USER>/mnt/gdrive/recorded_streams/): ")
+backup_save =  input("Enter a backup save path (will write output stream here only if writing to save_path fails): ")
 client_id = input("Enter your Twitch client ID: ")
 client_secret = input("Enter your Twitch client secret: ")
 url = "https://id.twitch.tv/oauth2/token"
@@ -23,7 +24,8 @@ output = {
     "app_access_token": app_access_token,
     "url": "https://api.twitch.tv/helix/streams",
     "streamer_username": streamer_username,
-    "save_path": save_path
+    "save_path": save_path,
+    "backup_save": backup_save,
 }
 
 file_path = 'config.json'

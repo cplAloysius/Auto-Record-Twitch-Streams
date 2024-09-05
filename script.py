@@ -13,6 +13,7 @@ app_access_token = config.get('app_access_token')
 url = config.get('url')
 streamer_username = config.get('streamer_username')
 save_path = config.get('save_path')
+backup_save = config.get('backup_save')
 
 params = {
 	"user_login": streamer_username
@@ -32,7 +33,11 @@ while(True):
 	if stream_info["data"]:
 		timestamp = datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
 		output_file = f"stream_{timestamp}.mp4"
-		os.system(f"sudo -u {my_username} streamlink --twitch-disable-ads twitch.tv/{streamer_username} best -o '{save_path}{output_file}'")
-		continue
+                try:
+		    os.system(f"sudo -u {my_username} streamlink --twitch-disable-ads twitch.tv/{streamer_username} best -o '{save_path}{output_file}'")
+                except:
+                    print("Error writing to path, writing to backup path")
+                    os.system(f"sudo -u {my_username} streamlink --twitch-disable-ads twitch.tv/{streamer_username} best -o '{backup_save}{output_file}'")
+                continue
 	
 	time.sleep(60)
