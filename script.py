@@ -1,5 +1,6 @@
 import requests
 import os
+import subprocess
 import time
 from datetime import datetime
 import json
@@ -34,7 +35,7 @@ while(True):
 		timestamp = datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
 		output_file = f"stream_{timestamp}.mp4"
 		try:
-			os.system(f"sudo -u {my_username} streamlink --twitch-disable-ads twitch.tv/{streamer_username} best -o '{save_path}{output_file}'")
+			subprocess.run(["sudo", "-u", my_username, "streamlink", "--twitch-disable-ads", f"twitch.tv/{streamer_username}", "best", "-o", f"{save_path}{output_file}"], check= True)
 		except:
 			print("Error writing to path, writing to backup path")
 			os.system(f"sudo -u {my_username} streamlink --twitch-disable-ads twitch.tv/{streamer_username} best -o '{backup_save}{output_file}'")
