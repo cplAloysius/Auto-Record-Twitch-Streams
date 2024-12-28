@@ -11,13 +11,18 @@ If they are, it then uses [Streamlink](https://github.com/streamlink/streamlink)
 
 1. Log in to the [Twitch Developer Console](https://dev.twitch.tv/console) to register a new application and obtain your client ID and client secret. Instructions [here](https://www.google.com/search?client=safari&rls=en&q=twitch+register+application&ie=UTF-8&oe=UTF-8).
 2. Clone this repository on the desired machine that you will be running the script on, and `cd` into it.
-3. `python setup.py`, which creates a config.json file containing the following information:
+3. Create a telegram bot using [BotFather](https://t.me/botfather), obtain the bot token and start the bot.
+4. Obtain your telegram chat id using [this bot](https://t.me/rawdatabot?start=botostore)
+5. `python setup.py`, generates an authentication token for the Twitch API using the following information and saves them in a `config.json` file:
     * Your system username
     * Desired streamer's Twitch username
     * Location to save the output stream file (format: /xxx/yyy/zzz/)
+    * Back up save location
     * Client ID you obtained from registering a new application on the Twitch Developer Console
     * Client Secret
-4. `python script.py` to start the script
+    * Your telegram bot token
+    * Your telegram chat id
+6. `python script.py` to start the script
 
 ## How to run the script on startup (Rpi)
 
