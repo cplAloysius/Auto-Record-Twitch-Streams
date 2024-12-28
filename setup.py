@@ -7,6 +7,9 @@ save_path = input("Enter the desired save path of the output streams (eg. /home/
 backup_save =  input("Enter a backup save path (will write output stream here only if writing to save_path fails): ")
 client_id = input("Enter your Twitch client ID: ")
 client_secret = input("Enter your Twitch client secret: ")
+tel_token = input("Enter your telegram bot token: ")
+tel_chat_id = input("Enter your telegram chat id: ")
+
 url = "https://id.twitch.tv/oauth2/token"
 data = {
     "client_id": client_id,
@@ -26,6 +29,8 @@ output = {
     "streamer_username": streamer_username,
     "save_path": save_path,
     "backup_save": backup_save,
+    "tel_token": tel_token,
+    "tel_chat_id": tel_chat_id,
 }
 
 file_path = 'config.json'
