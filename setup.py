@@ -1,14 +1,35 @@
 import requests
 import json
+import os
 
-username = input("Enter your system username: ")
-streamer_username = input("Enter the Twitch streamer's username: ")
-save_path = input("Enter the desired save path of the output streams (eg. /home/<USER>/mnt/gdrive/recorded_streams/): ")
-backup_save =  input("Enter a backup save path (will write output stream here only if writing to save_path fails): ")
-client_id = input("Enter your Twitch client ID: ")
-client_secret = input("Enter your Twitch client secret: ")
-tel_token = input("Enter your telegram bot token: ")
-tel_chat_id = input("Enter your telegram chat id: ")
+old_path = "config.json"
+
+if os.path.exists(old_path):
+    with open(old_path, 'r') as f:
+        config = json.load(f)
+else:
+    config = {}
+
+def prompt_input(prompt_text, key):
+    while True:
+        value = input(prompt_text)
+        if value:
+            return value
+        elif key in config:
+            print(f"Using saved value for '{key}': {config[key]}")
+            return config[key]
+        else:
+            print(f"No previous value found for '{key}'. Please enter a value.")
+
+
+username = prompt_input("Enter your system username: ", "username")
+streamer_username = prompt_input("Enter the Twitch streamer's username: ", "streamer_username")
+save_path = prompt_input("Enter the desired save path of the output streams (eg. /home/<USER>/mnt/gdrive/recorded_streams/): ", "save_path")
+backup_save =  prompt_input("Enter a backup save path (will write output stream here only if writing to save_path fails): ", "backup_save")
+client_id = prompt_input("Enter your Twitch client ID: ", "client_id")
+client_secret = prompt_input("Enter your Twitch client secret: ", "client_secret")
+tel_token = prompt_input("Enter your telegram bot token: ", "tel_token")
+tel_chat_id = prompt_input("Enter your telegram chat id: ", "tel_chat_id")
 
 url = "https://id.twitch.tv/oauth2/token"
 data = {
